@@ -8,26 +8,22 @@
     <title>Laravel</title>
 
     <!-- Fonts -->
-    <link rel="stylesheet" href="{{asset('css/font-awesome.min.css')}}" integrity="sha384-XdYbMnZ/QjLh6iI4ogqCTaIjrFk87ip+ekIjefZch0Y+PvJ8CDYtEs1ipDmPorQ+" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{asset('css/font-awesome.min.css')}}" >
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700">
 
-    <!-- Styles -->
+    <!-- Vendor -->
     <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}" >
-
     <link rel="stylesheet" href="{{asset('css/material-design-lite/material.min.css')}}">
+    <link rel="stylesheet" href="{{asset('css/animate.min.css')}}">
+
+
+    <!-- Icon -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
+    <!-- icon -->
      <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
-    <style>
-        body {
-            font-family: 'Lato';
-        }
 
-        .fa-btn {
-            margin-right: 6px;
-        }
-    </style>
 </head>
 <body id="app-layout">
     <nav class="navbar navbar-default navbar-static-top">
