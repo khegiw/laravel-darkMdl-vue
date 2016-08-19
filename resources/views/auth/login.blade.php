@@ -1,69 +1,56 @@
-@extends('layouts.app')
+@extends('layouts.login')
 
 @section('content')
-<section id="Login">
-    <div class="container top80">
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2">
-                <div class="panel panel-default">
-                    <div class="panel-heading">Login</div>
-                    <div class="panel-body">
-                        <form class="form-horizontal" role="form" method="POST" action="{{ url('/login') }}">
-                            {{ csrf_field() }}
+    <main class="mdl-layout__content mdl-color--grey-100">
+        <div class="mdl-card mdl-shadow--2dp employer-form" action="#">
 
-                            <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                                <label for="email" class="col-md-4 control-label">E-Mail Address</label>
+            <div class="mdl-card__title">
+                <h2>Login</h2>
+            </div>
 
-                                <div class="col-md-6">
-                                    <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}">
-
-                                    @if ($errors->has('email'))
-                                        <span class="help-block">
-                                            <strong>{{ $errors->first('email') }}</strong>
-                                        </span>
-                                    @endif
-                                </div>
+            <div class="mdl-card__supporting-text">
+                <form action="{{url('/login')}}" method="post" class="form">
+                    {{ csrf_field() }}
+                    <div class="form__article">
+                        <div class="mdl-grid">
+                            <div class="mdl-cell mdl-cell--12-col mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                <input type="text" id="Email" class="mdl-textfield__input" name="email" value="{{old('email')}}" required>
+                                <label for="Email" class="mdl-textfield__label">Email</label>
+                                @if ($errors->has('email'))
+                                <span class="ada-error">
+                                {{ $errors->first('email') }}
+                                </span>
+                                @endif
                             </div>
-
-                            <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                                <label for="password" class="col-md-4 control-label">Password</label>
-
-                                <div class="col-md-6">
-                                    <input id="password" type="password" class="form-control" name="password">
-
-                                    @if ($errors->has('password'))
-                                        <span class="help-block">
-                                            <strong>{{ $errors->first('password') }}</strong>
-                                        </span>
-                                    @endif
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <div class="col-md-6 col-md-offset-4">
-                                    <div class="checkbox">
-                                        <label>
-                                            <input type="checkbox" name="remember"> Remember Me
-                                        </label>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <div class="col-md-6 col-md-offset-4">
-                                    <button type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
-                                        Login
-                                    </button>
-
-                                    <a class="btn btn-link" href="{{ url('/password/reset') }}">Forgot Your Password?</a>
-                                </div>
-                            </div>
-                        </form>
+                        </div>
                     </div>
-                </div>
+                    <div class="form__article">
+                        <div class="mdl-grid">
+                            <div class="mdl-cell mdl-cell--12-col mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                <input type="password" id="Password" class="mdl-textfield__input" name="password" value="{{old('password')}}" required>
+                                <label for="Password" class="mdl-textfield__label">Password</label>
+                                @if ($errors->has('password'))
+                                    <span class="ada-error">
+                                {{ $errors->first('password') }}
+                                </span>
+                                @endif
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form__action">
+
+                        <button id="submit_button" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">
+                            Login
+                        </button>
+                        <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="isInfoReliable">
+                            <input type="checkbox" id="isInfoReliable" name="remember" class="mdl-checkbox__input" />
+                            <span class="mdl-checkbox__label">Rember me</span>
+                        </label>
+                    </div>
+                </form>
             </div>
         </div>
-    </div>
+    </main>
 
-</section>
 @endsection

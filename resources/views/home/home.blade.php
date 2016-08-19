@@ -29,14 +29,14 @@
                             <div class="mdl-layout-spacer"></div>
                             <div class="mdl-card__subtitle-text">
                                 <i class="material-icons">room</i>
-                                Minsk, Belarus
+                                Padang, Indonesia
                             </div>
                         </div>
                         <div class="mdl-card__supporting-text mdl-card--expand">
-                            <p class="weather-temperature">-11<sup>&deg;</sup></p>
+                            <p class="weather-temperature">30<sup>&deg;</sup></p>
 
                             <p class="weather-description">
-                                Cloudy and snow
+                                Bright and Hot
                             </p>
                         </div>
                     </div>

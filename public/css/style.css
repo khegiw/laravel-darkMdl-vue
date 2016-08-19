@@ -12106,6 +12106,10 @@ a {
   .form__action .mdl-button {
     padding: 0; }
 
+.ada-error {
+  font-size: small;
+  color: #b94a48; }
+
 .input-group > i {
   margin-right: 15px;
   margin-top: 4px;
