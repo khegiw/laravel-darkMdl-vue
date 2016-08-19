@@ -2,8 +2,10 @@ var elixir = require('laravel-elixir');
 
 
 require('laravel-elixir-vue');
-require('laravel-elixir-livereload');
-
+var srcJs = 'vendor/bower_components/',
+    dstJs = 'public/js/',
+    srcCss = '',
+    dstCss = 'public/css/';
 /*
  |--------------------------------------------------------------------------
  | Elixir Asset Management
@@ -15,27 +17,52 @@ require('laravel-elixir-livereload');
  |
  */
 
-elixir(function(mix) {
+elixir(function (mix) {
+
     mix.webpack('main.js');
-
+    mix.scripts('app.js');
     mix.sass('app.scss');
+    mix.sass('style.scss');
 
 
-    mix.copy('vendor/bower_components/material-design-lite/material.min.css',
-        'public/css/material-design-lite/material.min.css')
-        .copy('vendor/bower_components/bootstrap/dist/css/bootstrap.min.css','public/css/bootstrap.min.css')
-        .copy('vendor/bower_components/animate.css/animate.min.css','public/css/animate.min.css');
+    /**
+     * Copy Bower Assets to production Assets
+     * CSS Assets
+     */
+    //.copy('vendor/bower_components/material-design-lite/material.min.css',
+    // dstCss + 'material-design-lite/material.min.css')
 
+    mix.copy('vendor/bower_components/bootstrap/dist/css/bootstrap.min.css',
+            dstCss + 'bootstrap.min.css')
+        .copy('vendor/bower_components/owl.carousel/dist/assets/owl.carousel.min.css',
+            dstCss + 'owl.carousel.min.css')
+        .copy('vendor/bower_components/owl.carousel/dist/assets/owl.theme.default.css',
+            dstCss + 'owl.theme.default.css')
+        .copy('vendor/bower_components/animate.css/animate.min.css',
+            dstCss + 'animate.min.css');
+
+
+
+    /**
+     * JS Assets
+     */
     mix.copy('vendor/bower_components/material-design-lite/material.min.js',
-        'public/js/material-design-lite/material.min.js')
+        dstJs + 'material-design-lite/material.min.js')
         .copy('vendor/bower_components/jquery/dist/jquery.min.js',
-        'public/js/jquery.min.js')
+            dstJs + 'jquery.min.js')
         .copy('vendor/bower_components/bootstrap/dist/js/bootstrap.min.js',
-        'public/js/bootstrap.min.js')
+            dstJs + 'bootstrap.min.js')
         .copy('vendor/bower_components/QueryLoader2/queryloader2.min.js',
-        'public/js/queryloader2.min.js')
-        ;
+            dstJs + 'queryloader2.min.js')
+        .copy('vendor/bower_components/owl.carousel/dist/owl.carousel.min.js',
+            dstJs + 'owl.carousel.min.js')
+        .copy('vendor/bower_components/wow/dist/wow.min.js',
+            dstJs + 'wow.min.js')
+    ;
 
-    mix.livereload();
+    // mix.livereload();
+    mix.browserSync({
+        proxy: 'vue.app'
+    });
 });
 

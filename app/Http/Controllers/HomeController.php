@@ -12,6 +12,8 @@ class HomeController extends Controller
      *
      * @return void
      */
+
+
     public function __construct()
     {
         $this->middleware('auth');
@@ -22,8 +24,17 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function getIndex()
     {
-        return view('home');
+        return view('home.home');
+    }
+
+    public function getTemplates()
+    {
+        return view('templates.templates');
+    }
+    public function getForm()
+    {
+        return view('templates.form');
     }
 }

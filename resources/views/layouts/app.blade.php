@@ -15,6 +15,8 @@
     <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}" >
     <link rel="stylesheet" href="{{asset('css/material-design-lite/material.min.css')}}">
     <link rel="stylesheet" href="{{asset('css/animate.min.css')}}">
+    <link rel="stylesheet" href="{{asset('css/owl.carousel.min.css')}}">
+    <link rel="stylesheet" href="{{asset('css/owl.theme.default.css')}}">
 
 
     <!-- Icon -->
@@ -26,7 +28,7 @@
 
 </head>
 <body id="app-layout">
-    <nav class="navbar navbar-default navbar-static-top">
+    <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
 
@@ -79,13 +81,18 @@
     <script src="{{asset('js/bootstrap.min.js')}}" ></script>
 
     <link rel="stylesheet" href="{{asset('js/material-design-lite/material.min.js')}}">
+    <link rel="stylesheet" href="{{asset('js/owl.carousel.min.js')}}">
+    <link rel="stylesheet" href="{{asset('js/wow.min.js')}}">
     <script src="{{asset('/js/main.js')}}"></script>
+    <script src="{{asset('/js/app.js')}}"></script>
     {{--<script src="{{ elixir('js/main.js') }}"></script>--}}
 
-    @if ( Config::get('app.debug') )
-        <script src="{{url('')}}:35729/livereload.js?snipver=1" type="text/javascript"></script>
-    @endif
 
+    {{--@if ( Config::get('app.debug') )--}}
+        {{--<script src="{{url('')}}:35729/livereload.js?snipver=1" type="text/javascript"></script>--}}
+    {{--@endif--}}
+
+@stack('script')
 </body>
 </html>
 

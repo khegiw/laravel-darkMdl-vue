@@ -17,4 +17,20 @@ Route::get('/', function () {
 
 Route::auth();
 
-Route::get('/home', 'HomeController@index');
+Route::controller('/home', 'HomeController');
+/*
+ * JWT Create Role
+ */
+
+Route::post('role', 'JwtAuthController@createRole');
+Route::post('assign-role', 'JwtAuthController@assignRole');
+Route::post('permission', 'JwtAuthController@createPermission');
+Route::post('attach-permission', 'JwtAuthController@attachPermission');
+
+Route::group(['prefix'=>'api','middleware'=>['ability:admin,create-users']], function(){
+
+    Route::get('users','JwtAuthController@index');
+});
+
+Route::post('api/authenticate','JwtAuthController@authenticate');
+

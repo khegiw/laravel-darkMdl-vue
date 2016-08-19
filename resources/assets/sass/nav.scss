@@ -1,0 +1,68 @@
+/* ========================================================================
+   Component: Navigation
+ ========================================================================== */
+
+$defbackgrnd  : rgba(25,25,25,0.2);
+$activebg     : #7c7c7c;
+$colordefault : #ffffff;
+$activecolor  : #00ace9;
+$bdrcolor     : rgba(25,25,25,0.01);
+$dropDown     : false;
+.navbar-default {
+  background-color: $defbackgrnd;
+  border-color: $bdrcolor;
+  .navbar-brand {
+    color: $colordefault;
+    &:hover, &:focus {
+      color: $activecolor; }}
+  .navbar-text {
+    color: $colordefault; }
+  .navbar-nav {
+    > li {
+      > a {
+        color: $colordefault;
+        &:hover,  &:focus {
+          color: $activecolor; }}
+      @if $dropDown {
+        > .dropdown-menu {
+          background-color: $defbackgrnd;
+          > li > a {
+            color: $colordefault;
+            &:hover,  &:focus {
+              color: $activecolor;
+              background-color: $activebg; }}
+          .divider {
+            background-color: $activebg;}}}
+    }
+    > .active {
+      > a, > a:hover, > a:focus {
+        color: $activecolor;
+        background-color: $activebg; }}
+    > .open {
+      > a, > a:hover, > a:focus {
+        color: $activecolor;
+        background-color: $activebg; }}}
+  .navbar-toggle {
+    border-color: $bdrcolor;
+    &:hover, &:focus {
+      background-color: $activebg; }
+    .icon-bar {
+      background-color: $colordefault; }}
+  .navbar-collapse,
+  .navbar-form {
+    border-color: $colordefault; }
+  .navbar-link {
+    color: $colordefault;
+    &:hover {
+      color: $activecolor; }}}
+@media (max-width: 767px) {
+  .navbar-default .navbar-nav .open .dropdown-menu {
+    > li > a {
+      color: $colordefault;
+      &:hover, &:focus {
+        color: $activecolor; }}
+    > .active {
+      > a, > a:hover, > a:focus {
+        color: $activecolor;
+        background-color: $activebg; }}}
+}
