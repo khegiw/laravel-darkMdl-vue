@@ -6,6 +6,8 @@ Documentation for the framework can be found on the [Laravel website](http://lar
 
 
 
-
-dengan dark Material design lite template
+testing laravel vue starter kit 
+backend dengan dark Material design lite template
 vue.js
+
+
